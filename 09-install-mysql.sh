@@ -19,3 +19,13 @@ then
     else
         echo "Installing MySQL is SUCCESS"
     fi    
+
+    yum insall git -y
+
+    if [ $? -ne0 ]
+    then 
+        echo "ERROR:: Installing GIT is failed"
+        exit 1
+    else
+        echo "Installing GIT is SUCCESS"
+    fi
