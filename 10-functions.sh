@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ID [ $id -u ]
+ID=$(id -u)
 
 VALIDATE(){
-  if [ $? -ne0 ]
+  if [ $? -ne 0 ]
     then 
         echo "ERROR:: Installing mySQL is failed"
         exit 1
