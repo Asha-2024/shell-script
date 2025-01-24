@@ -1,16 +1,17 @@
 #!/bin/bash
 
 ID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%m-%S)
 
-echo "script name: $0"
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 VALIDATE(){
   if [ $? -ne 0 ]
     then 
-        echo "ERROR:: Installing mySQL is failed"
+        echo "ERROR:: $2... failed"
         exit 1
     else
-        echo "Installing  is SUCCESS"
+        echo "$2... SUCCESS"
     fi 
 }
 
@@ -22,11 +23,11 @@ then
         echo "You are root user"
     fi # fi means reverse of if, indicating conditi
 
-yum install mysql -y
+yum install mysql -y &>> $LOGFILE
 
-VALIDATE
+VALIDATE $? "Installing MYSQL"
 
-yum install git -y
+yum install git -y &>> $LOGFILE
 
 VALIDATE $? "Installing GIT"
 
