@@ -5,8 +5,10 @@ TIMESTAMP=$(date +%F-%H-%m-%S)
 Rm"\e[31m"
 Gm"\e[32m"
 Nm"\e[0m"
+
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
+echo "Script started executing at $TIMESTAMP"
 VALIDATE(){
   if [ $? -ne 0 ]
     then 
