@@ -1,6 +1,9 @@
 #!/bin/bash  
 
 ID=$(id -u)
+Rm"\e[31m"
+Gm"\e[32m"
+Nm"\e[0m"
 
 if [ $ID -ne 0 ] 
 then
